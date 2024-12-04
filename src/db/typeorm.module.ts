@@ -13,6 +13,10 @@ import { TypeOrmModule as MsSqlTypeOrmModule } from '@nestjs/typeorm';
       entities: ['dist/entities' + '/**/*.entity.js'],
       // entities: [__dirname + '/**/*.entity{.ts,.js}'], // шлях до ваших сутностей
       synchronize: true, // автоматична синхронізація схем (краще вимкнути у продакшені)
+      options: {
+        encrypt: false,
+        enableArithAbort: true,
+      },
       extra: {
         encrypt: false,
         trustServerCertificate: true, // потрібно для локальних підключень або самопідписаних сертифікатів
