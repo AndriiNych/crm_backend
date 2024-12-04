@@ -1,5 +1,6 @@
 export const TABLE_NAMES = {
   user: 'users',
+  worker: 'workers',
   client: 'clients',
   customer: 'customers',
   customer_type: 'customer_types',
@@ -11,4 +12,11 @@ export const TABLE_NAMES = {
   client_contract_plan: 'client_contract_plans',
   call_billing: 'calls_billing',
   message: 'messages',
+};
+
+export const TABLES_LINKS = {
+  USER: {
+    client: TABLE_NAMES.client,
+    worker: TABLE_NAMES.worker,
+  },
 };
