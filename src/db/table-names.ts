@@ -7,6 +7,7 @@ export const TABLE_NAMES = {
   contract: 'contracts',
   contract_type: 'contract_types',
   contract_plan: 'contract_plans',
+  contract_status: 'contract_status',
   client_contract: 'client_contracts',
   client_contract_history: 'client_contract_history',
   client_contract_plan: 'client_contract_plans',
