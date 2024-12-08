@@ -4,7 +4,6 @@ import { Client } from './client.entity';
 import { ClientDto } from './dto/client.dto';
 import { ConflictException, Injectable, NotFoundException, Param } from '@nestjs/common';
 import { ClientUpdateDto } from './dto/client.update.dto';
-import { ClientParamDto } from './dto/client.param.dto';
 
 const ENTITY_CLASS = Client;
 @Injectable()
@@ -36,6 +35,19 @@ export class ClientService {
 
     return await manager.save(ENTITY_CLASS, newRecord);
   }
+
+  // private async createR () {
+  //   const contractors = await manager
+  //     .createQueryBuilder(Contractor, 'contractor')
+  //     .where('contractor.name LIKE :name', { name: searchString }) // Пошук за назвою
+  //     .andWhere('contractor.createdAt > :date', { date: '2022-12-12' }) // Фільтр за датою створення
+  //     .orderBy('contractor.name', 'ASC') // Сортування за назвою
+  //     .addOrderBy('contractor.createdAt', 'DESC') // Сортування за датою створення
+  //     .skip((page - 1) * pageSize) // Пропустити записи для попередніх сторінок
+  //     .take(pageSize) // Обмежити кількість записів
+  //     .getMany(); // Отримати масив записів
+
+  // }
 
   private async isExistRecord(manager: EntityManager, id: number): Promise<void> {
     const fetchRecord = await this.fetchRecordById(manager, id);

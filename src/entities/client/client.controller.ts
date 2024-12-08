@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { TABLE_NAMES } from '@src/db/table-names';
 import { ClientTransaction } from './client.transaction';
 import { ClientDto } from './dto/client.dto';
@@ -17,7 +17,8 @@ export class ClientController {
     type: ClientResponseDto,
     isArray: true,
   })
-  async getAllRecords() {
+  async getAllRecords(@Query() query: any) {
+    console.log(query);
     return await this.clientTransaction.getAllRecords();
   }
 
