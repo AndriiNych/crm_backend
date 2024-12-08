@@ -32,5 +32,5 @@ export class ClientContractPlan {
   isActive: boolean;
 
   @Column({ ...FIELDS_TYPES.CREATED_AT })
-  createdId: Date;
+  createdAd: Date;
 }

@@ -28,7 +28,7 @@ export class CustomerBaseDto {
 
   @ApiProperty({ description: 'The date and time when the customer was created' })
   @Expose()
-  createdId: Date;
+  createdAt: Date;
 
   @ApiProperty({ description: 'The date and time when the customer was last updated' })
   @Expose()

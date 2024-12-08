@@ -28,5 +28,5 @@ export class CallBillingBaseDto {
 
   @ApiProperty({ description: 'The date when the call billing record was created' })
   @Expose()
-  createdIt: Date;
+  createdAt: Date;
 }

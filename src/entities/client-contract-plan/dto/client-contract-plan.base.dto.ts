@@ -40,5 +40,5 @@ export class ClientContractPlanBaseDto {
 
   @ApiProperty({ description: 'The date and time when the client contract plan was created' })
   @Expose()
-  createdId: Date;
+  createdAd: Date;
 }

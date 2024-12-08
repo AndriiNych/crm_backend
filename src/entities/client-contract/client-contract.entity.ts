@@ -1,6 +1,6 @@
 import { FIELDS_TYPES } from '@src/db/fields-type';
 import { TABLE_NAMES } from '@src/db/table-names';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity(TABLE_NAMES.client_contract)
 export class ClientContract {
@@ -39,4 +39,9 @@ export class ClientContract {
 
   @Column({ ...FIELDS_TYPES.UPDATED_AT })
   updatedAt: Date;
+
+  @BeforeUpdate()
+  updateTimestamp() {
+    this.updatedAt = new Date();
+  }
 }

@@ -23,5 +23,5 @@ export class CallBilling {
   callBillingLength: number;
 
   @Column({ ...FIELDS_TYPES.CREATED_AT })
-  createdIt: Date;
+  createdAt: Date;
 }

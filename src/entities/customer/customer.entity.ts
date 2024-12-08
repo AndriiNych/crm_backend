@@ -1,6 +1,6 @@
 import { FIELDS_TYPES } from '@src/db/fields-type';
 import { TABLE_NAMES } from '@src/db/table-names';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { BeforeUpdate, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity(TABLE_NAMES.customer)
 export class Customer {
@@ -23,8 +23,13 @@ export class Customer {
   isDeleted: boolean;
 
   @Column({ ...FIELDS_TYPES.CREATED_AT })
-  createdId: Date;
+  createdAt: Date;
 
   @Column({ ...FIELDS_TYPES.UPDATED_AT })
   updatedAt: Date;
+
+  @BeforeUpdate()
+  updateTimestamp() {
+    this.updatedAt = new Date();
+  }
 }
