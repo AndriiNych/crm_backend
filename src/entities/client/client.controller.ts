@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { TABLE_NAMES } from '@src/db/table-names';
 import { ClientTransaction } from './client.transaction';
 import { ClientDto } from './dto/client.dto';
@@ -17,8 +17,9 @@ export class ClientController {
     type: ClientResponseDto,
     isArray: true,
   })
-  async getAllRecords(@Query() query: any) {
+  async getAllRecords(@Query() query: any, @Query() query2: any) {
     console.log(query);
+    console.log(query2);
     return await this.clientTransaction.getAllRecords();
   }
 
@@ -50,7 +51,12 @@ export class ClientController {
   }
 
   @Put('/id/:id')
-  async updateRecord(@Param() param: ClientParamDto, @Body() body: ClientUpdateDto) {
+  async updateRecordById(@Param() param: ClientParamDto, @Body() body: ClientUpdateDto) {
     return await this.clientTransaction.updateRecordById(param, body);
+  }
+
+  @Delete('/id/:id')
+  async deleteRecordById(@Param() param: ClientParamDto) {
+    return await this.clientTransaction.deleteRecordById(param);
   }
 }

@@ -1,4 +1,4 @@
-import { DataSource } from 'typeorm';
+import { DataSource, EntityManager } from 'typeorm';
 import { ClientService } from './client.service';
 import { ClientDto } from './dto/client.dto';
 import { ClientResponseDto } from './dto/client.response.dto';
@@ -40,9 +40,17 @@ export class ClientTransaction {
     body: ClientUpdateDto,
   ): Promise<ClientResponseDto> {
     const { id } = param;
-    const result = await this.dataSource.transaction(async manager => {
+    const updatedRecord = await this.dataSource.transaction(async manager => {
       return await this.clientService.updateRecordById(manager, id, body);
     });
-    return result;
+    return updatedRecord;
+  }
+
+  public async deleteRecordById(param: ClientParamDto): Promise<ClientResponseDto> {
+    const { id } = param;
+    const deletedRecord = await this.dataSource.transaction(async manager => {
+      return await this.clientService.deleteRecordById(manager, id);
+    });
+    return deletedRecord;
   }
 }

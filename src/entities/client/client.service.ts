@@ -36,6 +36,14 @@ export class ClientService {
     return await manager.save(ENTITY_CLASS, newRecord);
   }
 
+  public async deleteRecordById(manager: EntityManager, id: number): Promise<ClientResponseDto> {
+    const fetchRecord = await this.fetchRecordByIdWithValidation(manager, id);
+
+    const newRecord = manager.merge(ENTITY_CLASS, fetchRecord, { isDeleted: true });
+
+    return await manager.save(ENTITY_CLASS, newRecord);
+  }
+
   // private async createR () {
   //   const contractors = await manager
   //     .createQueryBuilder(Contractor, 'contractor')
