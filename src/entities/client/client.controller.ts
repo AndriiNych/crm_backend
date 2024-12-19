@@ -17,9 +17,7 @@ export class ClientController {
     type: ClientResponseDto,
     isArray: true,
   })
-  async getAllRecords(@Query() query: any, @Query() query2: any) {
-    console.log(query);
-    console.log(query2);
+  async getAllRecords(@Query() query: any) {
     return await this.clientTransaction.getAllRecords();
   }
 
