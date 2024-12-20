@@ -1,6 +1,7 @@
+import { TABLE_NAMES } from '@src/db/table-names';
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity('active')
+@Entity(TABLE_NAMES.active)
 export class Active {
   @PrimaryGeneratedColumn()
   id: number;

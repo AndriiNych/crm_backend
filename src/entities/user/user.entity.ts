@@ -1,7 +1,8 @@
 import { FIELDS_TYPES } from '@src/db/fields-type';
+import { TABLE_NAMES } from '@src/db/table-names';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity('users')
+@Entity(TABLE_NAMES.user)
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
