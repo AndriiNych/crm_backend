@@ -1,4 +1,4 @@
-import { getBooleanValueFromEnv } from '../utils/boolean';
+import { getBooleanValueFromEnv } from '../../services/utils/boolean';
 
 async function activeOnrenderServer(token: string) {
   console.log(`datetime: ${new Date()}`);

@@ -2,7 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { startActivateOnrenderServer } from './services/active/acctive.render';
+import { startActivateOnrenderServer } from './entities/active/acctive.render';
 
 startActivateOnrenderServer();
 

@@ -8,7 +8,7 @@ import { ClientModule } from './entities/client/client.module';
 import { ContractModule } from './entities/contract/contract.module';
 import { CustomerModule } from './entities/customer/customer.module';
 import { MessageModule } from './entities/message/message.module';
-import { ActiveModule } from './services/active/active.module';
+import { ActiveModule } from './entities/active/active.module';
 
 @Module({
   imports: [
