@@ -1,4 +1,5 @@
 export const TABLE_NAMES = {
+  active: 'active',
   user: 'users',
   worker: 'workers',
   client: 'clients',
