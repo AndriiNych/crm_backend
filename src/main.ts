@@ -4,7 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { startActivateOnrenderServer } from './entities/active/acctive.render';
 
-startActivateOnrenderServer();
+// startActivateOnrenderServer();
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
