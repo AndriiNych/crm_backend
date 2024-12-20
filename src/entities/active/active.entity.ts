@@ -11,7 +11,6 @@ export class Active {
     length: 10,
     nullable: true,
     default: '',
-    collation: 'utf8_general_ci',
   })
   record: string;
 }
