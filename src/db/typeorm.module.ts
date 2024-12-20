@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule as MsSqlTypeOrmModule } from '@nestjs/typeorm';
+import { getBooleanValueFromEnv } from '@src/services/utils/boolean';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { TypeOrmModule as MsSqlTypeOrmModule } from '@nestjs/typeorm';
       database: process.env.MSSQL_DATABASE,
       entities: ['dist/entities' + '/**/*.entity.js'],
       // entities: [__dirname + '/**/*.entity{.ts,.js}'], // шлях до ваших сутностей
-      synchronize: true, // автоматична синхронізація схем (краще вимкнути у продакшені)
+      synchronize: getBooleanValueFromEnv(process.env.SINCHRONIZE),
       options: {
         encrypt: false,
         enableArithAbort: true,
